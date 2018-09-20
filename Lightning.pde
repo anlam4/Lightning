@@ -1,26 +1,36 @@
-int startX = 0;
-int startY = 150;
-int endX= 0;
-int endY = 150;
-
 void setup()
 {
   size(600,600);
   strokeWeight(3);
   background(0);
-  // noLoop();
+  
+  // Draws the crystal ball
+  crystalBall();
+  
+  // Stops the invisible while loop for draw()
+  noLoop();
 }
 void draw()
 {
-  crystalBall();
   // Provides a range of random colors
   int red = (int)(256 * Math.random());
   int blue = (int)(256 * Math.random());
   int green = (int)(256 * Math.random());
   stroke(red, blue, green);
-
+  
+  // Initializes start and endpoints of line
+  int startX = 300;
+  int startY = 355;
+  int endX= 295;
+  int endY = 360;
+  
+  // Draws the lightning bolt
+  while
+  {
+    line(startX,startY,endX,endY);
+    startX = startX + ((int)(Math.random()*21) - 10);
+  }
 }
-// Draws the crystal ball
 void crystalBall()
 {
   stroke(0);
@@ -31,5 +41,6 @@ void crystalBall()
 }
 void mousePressed()
 {
-  // redraw()
+  // Repeats drawing the lightning bolt every time the user clicks the screen
+  redraw
 }
