@@ -23,15 +23,19 @@ void draw()
   int startY = 355;
   int endX= 295;
   int endY = 360;
+  int changeX = ((int)(Math.random()*21) - 10); // X-coordinate changes in one direction
   
   // Draws the lightning bolt
-  while
+  while(endX > (300-(350/2)) && endX < (300+(350/2)) && endY < 525 && endY > (355-(350/2)))
   {
     line(startX,startY,endX,endY);
-    startX = startX + ((int)(Math.random()*21) - 10);
+    startX = endX;
+    startY = endY;
+    endX = endX + changeX;
+    endY = endY + ((int)(Math.random()*21) - 10);
   }
 }
-void crystalBall()
+void crystalBall() //do butterfly instead
 {
   stroke(0);
   fill(96,55,11);
@@ -42,5 +46,6 @@ void crystalBall()
 void mousePressed()
 {
   // Repeats drawing the lightning bolt every time the user clicks the screen
-  redraw
+  redraw();
 }
+
