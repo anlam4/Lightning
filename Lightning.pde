@@ -4,8 +4,8 @@ void setup()
   strokeWeight(3);
   background(0);
   
-  // Draws the crystal ball
-  crystalBall();
+  // Draws the butterfly's body
+  butterfly();
   
   // Stops the invisible while loop for draw()
   noLoop();
@@ -22,11 +22,20 @@ void draw()
   int startX = 300;
   int startY = 355;
   int endX= 295;
-  int endY = 360;
-  int changeX = ((int)(Math.random()*21) - 10); // X-coordinate changes in one direction
+  int endY = 358;
+  int changeX = ((int)(Math.random()*21) - 10); // X-coordinate changes 
+                                                // in one direction
+  
+  // Sets limits for how far the lightning bolt can go
+  // to make the wings more proportional to the butterfly's body
+  int maxLimX = 295 + 200;
+  int minLimX = 295 - 200;
+  int maxLimY = 355 + (296/2);  
+  int minLimY = 355 - (296/2);   
+  
   
   // Draws the lightning bolt
-  while(endX > (300-(350/2)) && endX < (300+(350/2)) && endY < 525 && endY > (355-(350/2)))
+  while(endX > minLimX && endX < maxLimX && endY > minLimY && endY < maxLimY )
   {
     line(startX,startY,endX,endY);
     startX = endX;
@@ -35,13 +44,16 @@ void draw()
     endY = endY + ((int)(Math.random()*21) - 10);
   }
 }
-void crystalBall() //do butterfly instead
+void butterfly()
 {
   stroke(0);
   fill(96,55,11);
-  rect(150,525,300,75,10);
-  fill(210);
-  ellipse(300,355,350,350);
+  ellipse(295,355,100,296);
+  stroke(96,55,11);
+  line(290,210,230,150);
+  line(300,210,360,150);
+  ellipse(230,150,20,20);
+  ellipse(360,150,20,20);
 }
 void mousePressed()
 {
